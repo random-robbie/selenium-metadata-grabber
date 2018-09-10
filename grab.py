@@ -21,7 +21,7 @@ def try_chrome(IP,PORT,URL):
 		driver.save_screenshot('screenshots_chrome.png')
 		print ("[*] Screenshot Saved [*]")
 		html_source = driver.page_source
-		if "IAM/" in html_source:
+		if "iam" in html_source:
 			print ("[*] "+html_source+" [*]")
 		driver.quit()
 	except:
@@ -37,7 +37,7 @@ def try_firefox (IP,PORT,URL):
 		driver.maximize_window()
 		driver.save_screenshot('screenshots_firefox.png')
 		print ("[*] Screenshot Saved [*]")
-		if "IAM/" in html_source:
+		if "iam" in html_source:
 			print ("[*] "+html_source+" [*]")
 		driver.quit()
 		driver.quit()
@@ -56,7 +56,7 @@ def try_ie (IP,PORT,URL):
 		driver.maximize_window()
 		driver.save_screenshot('screenshots_ie.png')
 		print ("[*] Screenshot Saved [*]")
-		if "IAM/" in html_source:
+		if "iam" in html_source:
 			print ("[*] "+html_source+" [*]")
 		driver.quit()
 	except:
